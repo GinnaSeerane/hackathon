@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="style.css">
+<body>
+
+<p>Emergency Help Needed!!!</p>
+
+<form action="/action_page.php">
+    <p><label for="problemDescription">Problem Description:</label></p>
+    <textarea id="problemDescription" name="problemDescription" rows="4" cols="50">Input Text here...</textarea>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+
+<button onclick="getLocation()">SOS</button>
+
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+<button onclick="911">Call 911</button>
+
+</body>
+</html>
